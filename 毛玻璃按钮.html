@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        :root{
+            --width : 20px;
+            --widthL : calc(var(--width) * 3);
+            --height : 20px;
+        }
+        body{
+            background-color: rgb(51, 97, 99);
+        }
+        .button{
+            margin: 20px;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+        }
+        .click{
+            z-index: -1;
+        }
+        .clickTwo:hover ~ .click{
+            position: relative;
+            top: -15px;
+            left: -2px;
+            width: calc(var(--widthL)*1.5);
+            height: calc(var(--height)*0.9);
+            background: linear-gradient(to right bottom,rgb(255, 106, 106),pink,pink,rgb(243, 184, 255));
+            border-radius: calc(var(--height) * 0.5);
+            box-shadow: rgb(255, 204, 225) 0px 0px 1px;
+            filter: blur(0.2px);
+            animation-name: grow;
+            animation-timing-function: ease-in-out;
+            animation-duration: 0.2s;
+        }
+        .clickTwo{
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: rgb(116, 255, 190);
+            text-shadow: rgba(212, 255, 242, 0.623) 0px 0px 3px;
+            line-height: 20px;
+            width: calc(var(--widthL)*1.5);
+            height: var(--height);
+            border-radius: calc(var(--height) * 0.5);
+            box-shadow: rgb(48, 48, 48) 1px 1px 5px;
+            backdrop-filter: blur(5px);
+            border: solid rgba(255, 255, 255, 0.24) 0.5px;
+        }
+        @keyframes grow{
+            0%{width: 0px;
+            height: 0px;}
+            10%{height: calc(var(--height)*0.9);
+                width: 0px;}
+            100%{ width: calc(var(--widthL)*1.5);
+                height: calc(var(--height)*0.9); }
+        }
+    </style>
+</head>
+<body>
+    <div class="button">
+        <div class="clickTwo">MyDiv</div>
+        <div class="click"></div>
+    </div>
+</body>
+</html>
