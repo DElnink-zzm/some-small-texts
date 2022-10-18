@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: auto;
+            height: auto;
+            background-color: rgb(51, 1, 80);
+        }
+    </style>
+</head>
+<body>
+    <div id="outPut"></div>
+</body>
+<script type="module">
+    import * as THREE from '../../three.js-dev/src/Three.js';
+
+    //添加画面和相机
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight ,0.1,10);
+
+    //添加图形渲染器、设置渲染框的大小并加入指定div中
+
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth,window.innerHeight);
+    document.querySelector('#outPut').appendChild(renderer.domElement)
+
+    //创建几何形体，创建材质，创建网格填入形体和材质，最后加入画面
+
+    var geometry = new THREE.BoxGeometry();
+    var material = new THREE.MeshNormalMaterial()
+    var mesh = new THREE.Mesh(geometry,material);
+    scene.add(mesh);
+
+    //设置摄像机选项
+
+    camera.rotation.x = 0.5;
+    camera.rotation.z = 0.5;
+    camera.rotation.y = 0.3;
+    camera.position.z = 2;
+    camera.position.x = 1.5;
+    camera.position.y = -2;
+
+    //渲染器渲染网格
+    renderer.render(scene,camera);
+</script>
+</html>
