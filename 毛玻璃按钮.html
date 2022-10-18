@@ -54,6 +54,7 @@
             box-shadow: rgb(48, 48, 48) 1px 1px 5px;
             backdrop-filter: blur(5px);
             border: solid rgba(255, 255, 255, 0.24) 0.5px;
+            cursor: pointer;
         }
         @keyframes grow{
             0%{width: 0px;
@@ -71,4 +72,15 @@
         <div class="click"></div>
     </div>
 </body>
+<script>
+    var btn = document.querySelector('.clickTwo');
+    btn.addEventListener('mousedown',function(e){
+        e.target.style.width = "87px";
+        e.target.style.height = "17px";
+    })
+    btn.addEventListener('mouseup',function(e){
+        e.target.style.width = "";
+        e.target.style.height = "";
+    })
+</script>
 </html>
